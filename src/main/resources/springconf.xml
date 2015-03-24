@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--
+        -   Birden fazla isim tanımlamasını buradaki name attribute ile yapmaktayız.
+        -   Bir spring nesnesine alias atamak için <alias name="beanName" alias="aliasNameOfBean"> kullanılır
+        -   Enjekte etme işlemlerinden bir tanesi aşağıdaki yapılandırıcıdır
+        -   Diğer bir enjekte etme işlemi ise propertyler üzerindendir.Yani;
+            -   <property name="strategy" ref="operationAdd" /> şeklindedir.
+
+        -   depends-on attribute önce hangi bean oluşturulmalıdır onu belirler. Spring default olrak önce enjekte edilecek beanları oluşturur.
+            -   Birden fazla bean tanımlaması virgül ile yapılır.
+
+        -   Spring için bean oluşturma scope değeri default olarak singleton dır. Bu şu demek bu beandan sadece bir kere oluşturabilirsin.
+        -   beanların scope değerlerini prototype yaparsan her defasında farklı objeler oluşturacaktır. Scopealr ile nesnelerin ömürleri tanımlanır.
+        -   Eğer istersek kendi scope alanlarımızı tanımlayabiliriz. Bunu yapmak için org.springframework.bean.factory.config.Scope interfaceinden bir implementasyon alınmalıdır.
+    -->
+    <bean id="context/cont" name="context,cont" class="basicspringxmlconf.Context" depends-on="operation" scope="singleton">
+        <constructor-arg name="strategy" ref="operation"></constructor-arg>
+
+    </bean>
+
+    <bean id="operation" class="basicspringxmlconf.OperationMul" scope="prototype"/>
+
+
+</beans>
