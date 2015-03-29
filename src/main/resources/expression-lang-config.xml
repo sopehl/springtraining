@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Springde expression lang # işareti ile başlamaktadır. tüm aritmatiksel ve mantıksal işlemler mevcuttur
+        Javadaki Regular expression lang deki gibi match özelliğide bulunmaktadır.
+    -->
+
+    <bean id="customer" class="springexpressionlang.Customer" scope="prototype">
+        <property name="value" value="#{100+1}"></property>
+        <property name="name" value="Okan #{2354}"></property>
+        <property name="x" value="#{100>10}"></property>
+    </bean>
+
+    <!--
+        - Spring Expression language sayesinde herhangi bir beanın propertysini elde edebilirz.
+    -->
+    <bean id="employee" class="springexpressionlang.Employee">
+        <property name="name" value="#{customer.name}"></property>
+        <!--Static classların metodlarına erişbilmek için aşağıdaki yapıyı kullanırız-->
+        <property name="number" value="#{ T(java.lang.Math).random() * 100.0}"></property>
+        <property name="property" value="#{T(java.lang.System).getProperty('user.name')}"></property>
+        <!--System özelliklerine erişme biçimimiz bu şekildir-->
+        <property name="otherProperty" value="#{systemProperties['user.home']}"></property>
+    </bean>
+
+
+</beans>
