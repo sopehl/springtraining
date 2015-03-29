@@ -2,6 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+
+    Aşağıdaki koda göz attığımızda
+
+    <property name="carType" value="CAR"></property>
+
+    kodları kendini tekrar etmektedir. Bir programcı olarak DRY prensibine uymalıyız
+    Ne diyor bu prensip?
+
+    -> DONT REPEAT YOURSELF kendimizi hiçbir zaman tekrar etmeyeceğiz. Copy paste kullanarak yazdıpımız! kodların kullanımı ve bakımı zor olacaktır
+
+    -->
+
     <!--
     <bean id="clio" class="inheritancespring.Car">
         <property name="carType" value="CAR"></property>
@@ -22,6 +36,11 @@
     </bean>
     -->
 
+    <!--
+
+        parent attributesi kullnılarak bir üst bean(car bean)dan araba tipini aldım böylece kendimi tekrar etmemiş oldum.
+
+    -->
     <bean id="car" class="inheritancespring.Car" abstract="true">
         <property name="carType" value="CAR"></property>
     </bean>
@@ -40,5 +59,15 @@
         <property name="brand" value="Audi"></property>
         <property name="model" value="a5"></property>
     </bean>
+
+    <!--
+        <bean id="clio" parent="car">
+                <property name="brand" value="Renault"></property>
+                <property name="model" value="clio"></property>
+                <property name="factory">
+                            <bean class="com.kurumsaljava.spring.ClioCarFactory" />
+                </property>
+        </bean>
+    -->
 
 </beans>

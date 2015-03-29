@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        - İmport keywordunun kullanımı configrasyon dosyalarını mantıksal olarak bölüp daha sonra tek bir configrasyon dosyası üzrinden kullanmamızı sağlamaktadır
+        - Bu sayede satır olarak çoğalan configrasyon dosyalarıdaha kontrol edilebilir hale gelmektedir
+    -->
+
+    <import resource="repo-config.xml"></import>
+    <import resource="car-config.xml"></import>
+    <import resource="service-config.xml"></import>
+</beans>
