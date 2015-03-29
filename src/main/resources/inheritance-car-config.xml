@@ -60,4 +60,14 @@
         <property name="model" value="a5"></property>
     </bean>
 
+    <!--
+        <bean id="clio" parent="car">
+                <property name="brand" value="Renault"></property>
+                <property name="model" value="clio"></property>
+                <property name="factory">
+                            <bean class="com.kurumsaljava.spring.ClioCarFactory" />
+                </property>
+        </bean>
+    -->
+
 </beans>
