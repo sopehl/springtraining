@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="cvep_isimalanlari.Personel"
+            p:string="SOP"
+            p:age="20"/>
+    <!--
+        Eğer bir obje referansı kullanmak isterek -ref ile beraber kullanmalıyız
+        xmlns:p="http://www.springframework.org/schema/p" ile p shemasını eklemiş oluruz
+    -->
+
+    <bean id="student" class="cvep_isimalanlari.Student"
+          c:name="Semih Okan"
+          c:age="20"/>
+
+
+
+
+</beans>
