@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Bir takım configrasyon işlemlerinin annotasyonlar ile yapıldığını söylemektedir-->
+    <context:annotation-config></context:annotation-config>
+    <!--
+        Bu pakatte tüm @Autowiredları bul kime ne enjekte edilecekse aşağıdan onları al enjekte et demek istiyor. Bizim belirlediğimiz pakette
+        Birden fazla paket vermek istersek , ile ayırabiliriz
+    -->
+    <context:component-scan base-package="annotationconfigration"></context:component-scan>
+
+    <!--
+        Bu beanı otomatik olarak Student.lesson a enjekte ediyor
+        Görüldüğü gibi enjekte edeceğimiz(hedef bean) bean burada yer almamaktadır
+        Hedef bean bir java dosyasıdır. Bunuda @Autowired sağlamaktadır
+    -->
+    <bean id="lesson" class="annotationconfigration.Lesson"></bean>
+
+    <!--
+        Bu şekilde 2 tane tanımlama yaparsak, spring hangisini seçeceğini bilmiyor
+        NoUniqueBeanDefinitionException : expected single matching bean but found 2: email,sms şeklinde bir exception alıyoruz.
+        O yüzden bir tanesini kaldırıyorum.
+    -->
+    <bean id="email" class="annotationconfigration.EmailServiceImp"></bean>
+    <!--<bean id="sms" class="annotationconfigration.SMSService"></bean>-->
+
+
+</beans>

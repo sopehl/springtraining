@@ -26,6 +26,7 @@
         <property name="otherProperty" value="#{systemProperties['user.home']}"></property>
     </bean>
 
+    <!--Burada customer.getName() ile bir string değeri elde ettik bu değeri başka beanlara enjekte edebiliriz-->
     <bean id="employeer" class="springexpressionlang.Employeer">
         <property name="name" value="#{customer.getName()}"></property>
     </bean>
