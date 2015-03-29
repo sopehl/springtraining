@@ -18,6 +18,11 @@
           c:age="20"/>
 
 
+    <!--
+        Eğer bir objenin constructorlarına ekleme yapılması gerekiyorsa c tagı kullanılarak daha kolay yapılabilir
+        bunu yapmak için xmlns:c="http://www.springframework.org/schema/c" shemasının yüklenmesi gerekmektedir.
+        xmlns nedir?
+    -->
 
 
 </beans>

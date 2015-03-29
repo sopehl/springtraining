@@ -13,7 +13,7 @@
         Not olarak aynı zamanda xsi:schemaLocation kısmınada ekleme yapmaktayız. Burada önemli olan şey shameLocation değerlerinin çift sayıda olması gerekmekte
 
         ekleme olarakta:
-            http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd
         ekliyoruz.
     -->

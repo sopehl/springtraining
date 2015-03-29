@@ -10,7 +10,7 @@ public class Test {
 
     @org.junit.Test
     public void test(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("property-conf.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("properties/property-conf.xml");
 
         OracleDatabaseImp oracle = context.getBean("database", OracleDatabaseImp.class);
         System.out.println(oracle.getPassword());

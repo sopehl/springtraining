@@ -15,6 +15,8 @@
           <file>file://$MODULE_DIR$/src/main/resources/import-keyword-config/car-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/import-keyword-config/import-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/c-p-tag-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/property-conf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/properties/util-property.xml</file>
         </fileset>
       </configuration>
     </facet>
