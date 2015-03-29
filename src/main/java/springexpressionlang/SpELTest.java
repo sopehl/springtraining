@@ -11,7 +11,6 @@ public class SpELTest {
 
     @Test
     public void expression_lang_test(){
-        
         ApplicationContext context = new ClassPathXmlApplicationContext("expression-lang-config.xml");
         Customer customer = context.getBean("customer",Customer.class);
 
@@ -25,6 +24,8 @@ public class SpELTest {
         System.out.println(employee.getProperty());
         System.out.println(employee.getOtherProperty());
 
+        Employeer employeer = context.getBean("employeer",Employeer.class);
+        System.out.println(employeer.getName());
     }
 
 }

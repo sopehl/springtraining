@@ -26,5 +26,9 @@
         <property name="otherProperty" value="#{systemProperties['user.home']}"></property>
     </bean>
 
+    <bean id="employeer" class="springexpressionlang.Employeer">
+        <property name="name" value="#{customer.getName()}"></property>
+    </bean>
+
 
 </beans>
