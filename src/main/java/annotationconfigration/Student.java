@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 /**
  * Created by semih on 30.03.2015.
  */
+//  javada bir sınıfın bean olarak algılanabilmesi için onun @Component annotasyonu ile tanımlanmış olması gerekmektedir.
+//  buradaki value kısmında kullanılan student ibaresi xml yapısında bir bean için kullanılan id veya name ile eş değerdir
 @Component(value = "student")
 public class Student {
 

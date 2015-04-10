@@ -9,6 +9,8 @@
     <!--
         Bu pakatte tüm @Autowiredları bul kime ne enjekte edilecekse aşağıdan onları al enjekte et demek istiyor. Bizim belirlediğimiz pakette
         Birden fazla paket vermek istersek , ile ayırabiliriz
+
+        include-filter ve exclude-filter ile hangi sınıfların component'in arama için dahil hangisinin değil bunuda belirleyebiliriz.
     -->
     <context:component-scan base-package="annotationconfigration"></context:component-scan>
 
