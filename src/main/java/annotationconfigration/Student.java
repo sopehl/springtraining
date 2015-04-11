@@ -1,6 +1,7 @@
 package annotationconfigration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,6 +14,9 @@ public class Student {
 
     //@Autowired ta require = true default değerdir
     @Autowired
+    //@Qualifier annotasyonu sayesinde buraya hangi MessageService implementasyonu enjekte edilecek ona karar vermiş olduk. Buradaki value değeri xml dosyasındaki
+    //MessageService implementasyonlarından birinin idsidir.
+    @Qualifier(value = "email")
     private MessageService service;
 
     //@Autowired kullanmazsak NullPointer alırız.

@@ -27,7 +27,7 @@
         O yüzden bir tanesini kaldırıyorum.
     -->
     <bean id="email" class="annotationconfigration.EmailServiceImp"></bean>
-    <!--<bean id="sms" class="annotationconfigration.SMSService"></bean>-->
+    <bean id="sms" class="annotationconfigration.SMSService"></bean>
 
 
 </beans>
