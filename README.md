@@ -14,3 +14,8 @@
 >> [tutorialspoint](http://www.tutorialspoint.com/spring/)
 >> [Pratik Spring Core - Özcan Acar](http://www.pratikprogramci.com/urun/pratik-spring-core-ozcan-acar/)
 
+-   Springde kullanılan temel annotasyonlar(org.springframework.sterotype)
+    -   @Controller
+    -   @Repository
+    -   @Component
+    -   @Service
