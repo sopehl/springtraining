@@ -2,6 +2,7 @@ package annotationconfigration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,6 +24,16 @@ public class Student {
     @Autowired
     private Lesson lesson;
 
+    @Value("student.com")
+    private String webSite;
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
+    }
 
     public Lesson getLesson() {
         return lesson;

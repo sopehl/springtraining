@@ -16,6 +16,6 @@ public class StudentTest {
         Student student = context.getBean("student", Student.class);
         student.aboutMessage();
         student.aboutLesson();
-
+        System.out.println(student.getWebSite());
     }
 }
