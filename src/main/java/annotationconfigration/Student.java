@@ -27,6 +27,17 @@ public class Student {
     @Value("student.com")
     private String webSite;
 
+    @Value("#{systemProperties['user.name']}")
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public String getWebSite() {
         return webSite;
     }

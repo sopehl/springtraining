@@ -17,5 +17,6 @@ public class StudentTest {
         student.aboutMessage();
         student.aboutLesson();
         System.out.println(student.getWebSite());
+        System.out.println("user.name: " + student.getUserName());
     }
 }
