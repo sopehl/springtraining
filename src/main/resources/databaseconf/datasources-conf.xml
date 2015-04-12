@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        -   <context:annotation-config> bize biyerlerde annotasyon ile conf. yapıldığını söylüyor.
+        -   <context:component-scan base-package="database.datasources"></context:component-scan> ise enjekte edilecek nesneleri bu pakette ara diyor
+    -->
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="database.datasources"></context:component-scan>
+
+    <!--
+        -   populator objesi sayesinde .sqlleri kullanabiliyoruz. Yani scriptleri belirlemiş oluyoruz
+        -   veritabanım geçici olarak çalışıyor o yüzden populatorlar kullanıyorum. Yani bir db tablom vs yok
+        -   buradaki scripler benim için sanki varmış gibi çalışıyor. Bu sayede daha basit ve geçici testler yapabilirim
+    -->
+    <bean id="populator" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+        <property name="scripts">
+            <list>
+                <!--bunlar resource içinde aşağıdaki pathte-->
+                <value>sqlfiles/schema.sql</value>
+                <value>sqlfiles/data.sql</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        -   Ben burada datasource beanı oluşturdum Autowired olduğu yerlere gidip eklenicektir. Görüldüğü üzere
+        -   basit bir configuration kullanılacak populatoru belirliyoruz
+        -   dialect(databaseType) belirlemesi yapıyoruz
+    -->
+    <bean class="org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean">
+        <property name="databasePopulator" ref="populator"></property>
+        <property name="databaseType" value="HSQL"></property>
+    </bean>
+    <!--Olayı daha basite indirgemek istersek şu şekilde-->
+    <!--
+       <jdbc:embedded-database id="dataSource" type="HSQL">
+            <jdbc:script location="schema.sql"/>
+            <jdbc:script location="data.sql"/>
+       </jdbc:embedded-database>
+    -->
+
+    <!--Eğerki db yi böyle geçici şekilde kullanmamış olsaydım url user password driver gibi özellikleri datasourcea geçmem gerekirdi-->
+
+
+</beans>
