@@ -12,9 +12,10 @@ public class JavaConfTest {
 
     @Test
     public void java_conf_test(){
+        // Burada önemli olan kısım AnnotationConfigApplicationContext classının kullanılmış olması
         ApplicationContext context = new AnnotationConfigApplicationContext(StrategyConf.class);
 
-        StrategyContext strategyContext = context.getBean("stra",StrategyContext.class);
+        StrategyContext strategyContext = context.getBean("strategy",StrategyContext.class);
         strategyContext.execute(1,2);
     }
 
