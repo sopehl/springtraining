@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -27,6 +29,22 @@ public class CustomerRepositoryImp {
 
         String sql = "Select * from customer where firstName =?";
         return jdbcTemplate.query(sql,customerResultSetExtractor,name);
+    }
+
+//    Bu metod bir map döndürmektedir ve tek satırlı data seti için kullanılır
+//    eğer birden fazla data seti dönerse, org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected 1, actual 2
+//    hatası vericektir
+    public Map getCustomerByNameForMap(String name){
+        String sql = "Select * from customer where firstName =?";
+        logger.info("Customer is mapped");
+
+        return jdbcTemplate.queryForMap(sql,name);
+    }
+//    queryForList ise birden fazla row döndüren queryler için kullanılabilir
+    public List getAllCustomerByNameForList(){
+        String sql = "SELECT * FROM CUSTOMER";
+
+        return jdbcTemplate.queryForList(sql);
     }
 
     public void save(Customer customer){

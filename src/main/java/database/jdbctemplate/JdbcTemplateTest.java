@@ -19,6 +19,10 @@ public class JdbcTemplateTest {
 
         Customer customer = new Customer("Bekir","Pehlivan","1234567");
         customerRepositoryImp.save(customer);
+
+        System.out.println(customerRepositoryImp.getCustomerByNameForMap("Musa"));
+
+        System.out.println(customerRepositoryImp.getAllCustomerByNameForList());
     }
 
 }
