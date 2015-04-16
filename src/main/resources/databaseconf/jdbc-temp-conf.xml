@@ -33,4 +33,14 @@
         <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
     </bean>
 
+    <!--
+        SimpleJDBCInsert ile basitinden veri ekleme işlemi yapabiliriz.
+        Burada generetedKeyName değeri girmezsek eğer tablomuzdaki id tanınmayacaktır ve eklediğimiz kişinin idsi 0 olur
+    -->
+    <bean class="org.springframework.jdbc.core.simple.SimpleJdbcInsert">
+        <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+        <property name="tableName" value="customer"></property>
+        <property name="generatedKeyName" value="id"></property>
+    </bean>
+
 </beans>

@@ -4,8 +4,10 @@ import database.datasource.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -22,6 +24,8 @@ public class CustomerRepositoryImp {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    SimpleJdbcInsert jdbcInsert;
 //    aşağıdaki metod -> parametre olarak aldığı ismin customerini getiriyor
 //    datasource paketind
     public Customer getCustomerByName(String name){
@@ -49,8 +53,22 @@ public class CustomerRepositoryImp {
 
     public void save(Customer customer){
         String sql = "insert into customer (firstName,lastName,number) values(?,?,?)";
-        jdbcTemplate.update(sql, customer.getName(), customer.getLastName(), customer.getPhoneNum());
+        jdbcTemplate.update(sql, customer.getName(), customer.getLastName(),
+                customer.getPhoneNum());
         logger.info("Customer has been saved"+" named:"+customer.getName());
+    }
+//    Aşağıda SimpleJdbcInsert nasıl kullanılır o görünüyor
+//    Testini yaparken customer için bir id set etmedim
+//    Ama onun yerine configrasyon dosyasında propertyde genereytedKeyName belirttim
+//    Bu sayede id kendiliğinden arttı
+    public void addCustomer(Customer customer){
+        Map<String,Object> properties = new HashMap<String, Object>(4);
+        properties.put("id", customer.getId());
+        properties.put("firstName", customer.getName());
+        properties.put("lastName", customer.getLastName());
+        properties.put("number", customer.getPhoneNum());
+
+        jdbcInsert.execute(properties);
     }
 
 }

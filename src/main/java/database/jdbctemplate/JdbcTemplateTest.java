@@ -23,6 +23,11 @@ public class JdbcTemplateTest {
         System.out.println(customerRepositoryImp.getCustomerByNameForMap("Musa"));
 
         System.out.println(customerRepositoryImp.getAllCustomerByNameForList());
+
+        Customer customer2 = new Customer("Ahmet","Ak","86546435");
+        customerRepositoryImp.addCustomer(customer2);
+
+        System.out.println(customerRepositoryImp.getCustomerByName("Ahmet").getId());
     }
 
 }

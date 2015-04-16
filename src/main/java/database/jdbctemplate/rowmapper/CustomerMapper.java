@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  * Created by semih on 16.04.2015.
@@ -17,7 +18,7 @@ public class CustomerMapper implements RowMapper<Customer>{
 * aynı map etme işlemini burada bir başka sınıf olan RowMapper sınıfını implemente ederek yapmaktayım
 * */
     private Customer customer = null;
-
+    private static final Logger logger = Logger.getLogger(CustomerMapper.class.getName());
     @Override
     public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
         customer = new Customer();
@@ -25,7 +26,7 @@ public class CustomerMapper implements RowMapper<Customer>{
         customer.setLastName(rs.getString("lastName"));
         customer.setPhoneNum(rs.getString("number"));
         customer.setId(rs.getLong("id"));
-
+        logger.info("RowNum :" + rowNum);
         if(customer == null)
             throw new EmptyResultDataAccessException(1);
 
