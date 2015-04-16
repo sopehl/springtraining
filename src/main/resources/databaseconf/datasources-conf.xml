@@ -9,7 +9,7 @@
         -   <context:component-scan base-package="database.datasources"></context:component-scan> ise enjekte edilecek nesneleri bu pakette ara diyor
     -->
     <context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="database.datasources"></context:component-scan>
+    <context:component-scan base-package="database.datasource"></context:component-scan>
 
     <!--
         -   populator objesi sayesinde .sqlleri kullanabiliyoruz. Yani scriptleri belirlemiş oluyoruz

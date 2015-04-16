@@ -1,4 +1,4 @@
-package database.datasources;
+package database.datasource;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

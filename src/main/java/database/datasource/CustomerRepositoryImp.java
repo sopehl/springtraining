@@ -1,7 +1,6 @@
-package database.datasources;
+package database.datasource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -19,6 +18,7 @@ public class CustomerRepositoryImp {
 
     // Burada birtane datasource'a bağımlıyım.-Springin burada configuration dosyasından enjekte etmesini bekliyoruz
     // datasourcelar database hakkında bilgileri bizlere verir
+    // JDBC data sources provide database Access and database connection Management.
     @Autowired
     private DataSource dataSource;
 

@@ -1,15 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
-.idea/workspace.xml
-.idea/vcs.xml
-.idea/modules.xml
-.idea/uiDesigner.xml
-.idea/encodings.xml
-.idea/compiler.xml
-.idea/.name
-.idea/scopes
-.idea/copyright
-.idea/misc.xml
+.idea/
 
 spring-framework-training.iml
 
