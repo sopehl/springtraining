@@ -17,6 +17,11 @@ public class RowMapperTest {
         CustomerRepositoryImp customerRepositoryImp = context.getBean("customerRepo",CustomerRepositoryImp.class);
         Customer customer = customerRepositoryImp.getCustomerByName("Musa");
         System.out.println("id: "+ customer.getId());
+
+        for(Customer cus : customerRepositoryImp.getCustomerList()){
+            System.out.println("id "+cus.getId());
+            System.out.println("name "+cus.getName());
+        }
     }
 
 }

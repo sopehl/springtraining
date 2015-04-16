@@ -11,7 +11,11 @@ import java.sql.SQLException;
  * Created by semih on 16.04.2015.
  */
 public class CustomerMapper implements RowMapper<Customer>{
-
+/*
+* Spring terminolojisinde, veri tabanı satırlarını bir objeye map eden classlara callbask classı denilmektedir. Buradaki
+* CustomerMapper classı bir callbak classıdır. jdbctemplate paketinde bu işlemi Extractor classı ile yaptım
+* aynı map etme işlemini burada bir başka sınıf olan RowMapper sınıfını implemente ederek yapmaktayım
+* */
     private Customer customer = null;
 
     @Override
