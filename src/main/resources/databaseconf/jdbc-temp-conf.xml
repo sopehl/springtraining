@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="database.jdbctemplate,database.jdbctemplate.rowmapper"></context:component-scan>
+    <context:component-scan base-package="database.jdbctemplate,database.jdbctemplate.rowmapper,database.jdbcdaosupport"></context:component-scan>
 
     <!--
         -   Aşağıdaki embedded-database kullanarak scriptlerin daha basit bir şekilde nasıl yüklendiğini gördük

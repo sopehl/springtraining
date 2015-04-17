@@ -19,3 +19,8 @@
     -   @Repository
     -   @Component
     -   @Service
+
+-   Datasource konfigrasyon yöntemleri:(Her birinin kendine göre özellikleri var)
+    -   JDBC driver ile(Büyük projelerde kullanılması tavsiye edilmiyor)
+    -   JNDI kullanarak
+    -   DBCP kullanarak [DBCP ref.](http://commons.apache.org/dbcp/), [c3po ref.](http://www.mchange.com/projects/c3p0/)
