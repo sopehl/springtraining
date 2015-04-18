@@ -24,3 +24,7 @@
     -   JDBC driver ile(Büyük projelerde kullanılması tavsiye edilmiyor)
     -   JNDI kullanarak
     -   DBCP kullanarak [DBCP ref.](http://commons.apache.org/dbcp/), [c3po ref.](http://www.mchange.com/projects/c3p0/)
+
+-   Spring platform bağımsız transaction managers
+
+![spring-trans-managers](http://www.injavawetrust.com/wp-content/uploads/spring-transaction-manager.png)
