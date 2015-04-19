@@ -35,8 +35,7 @@ public class CustomerManager {
 //    Ben burada basicdbforusing paketindeki bir database işlemleri ile bunu yaptım
 //    2 tane @transactional metodla dene
 
-//    dirty readten sonra bir diğer sorun ise şudur(nonrepeatable read): bir threadin ilk sorgusunda aldığı değerleri 2. veya 3. sordusunda alamamasıdır
-//    aynı sorgunun değişik sonuçlar vermesi demek, başka bir thread iki sorgu arasına girmiş değşim yapmış, bunu önlemek için
+//    dirty readten sonra bir diğer sorun ise şudur(nonrepeatable read): bir threadin aynı sorguyu tekrarlaması ile aynı sonucu alamamasına denir, bunu önlemek için
 //    @Transactional(isolation = Isolation.REPEATABLE_READ) şeklinde bi izolasyon kullanabiliriz. Bu şunu yapar ilk sql sorgularını korur ve onları kullanır
 //    yani bu metod çalışırken dışarıdan db ye bir müdahale yapılsa bundan kendini korur sql sorguları ilk başta neyse onu kullanır
 //    sonraki değişimlerden kendini korur, commit ile veride değişim yapılsa bile
@@ -54,5 +53,7 @@ public class CustomerManager {
             }
         }
     }
+//    Diğer bir sorun ise phantom reads: Bu şu demek bir threadin 2. ve 3 sorgusunda 1. sorguda olmayan değerlerin olması
+//    Yukarıdaki tüm sorunların izole edilmesi için Isolation.Serializable kullanılır. Bunun performansı projeyi doğrudan ektileyebilir
 
 }
