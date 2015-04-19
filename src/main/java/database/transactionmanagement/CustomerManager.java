@@ -34,14 +34,21 @@ public class CustomerManager {
 
 //    Ben burada basicdbforusing paketindeki bir database işlemleri ile bunu yaptım
 //    2 tane @transactional metodla dene
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+
+//    dirty readten sonra bir diğer sorun ise şudur(nonrepeatable read): bir threadin ilk sorgusunda aldığı değerleri 2. veya 3. sordusunda alamamasıdır
+//    aynı sorgunun değişik sonuçlar vermesi demek, başka bir thread iki sorgu arasına girmiş değşim yapmış, bunu önlemek için
+//    @Transactional(isolation = Isolation.REPEATABLE_READ) şeklinde bi izolasyon kullanabiliriz. Bu şunu yapar ilk sql sorgularını korur ve onları kullanır
+//    yani bu metod çalışırken dışarıdan db ye bir müdahale yapılsa bundan kendini korur sql sorguları ilk başta neyse onu kullanır
+//    sonraki değişimlerden kendini korur, commit ile veride değişim yapılsa bile
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void diplaydep(long ID) {
         int i =0;
         while (true) {
             i++;
             System.out.println(transactionImp.getDepartmentByID(ID)+" "+i);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
+                System.out.println(transactionImp.getDepartmentByID(ID)+" "+i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

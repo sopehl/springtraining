@@ -23,6 +23,7 @@ public class DBtest {
             }
 
             Thread.sleep(1);
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
