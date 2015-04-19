@@ -15,6 +15,7 @@ public class TransactionManagementTest {
 
         CustomerManager customerTransactionImp = context.getBean("manager", CustomerManager.class);
         customerTransactionImp.operation("Administration", 110);
+        customerTransactionImp.diplaydep(160);
     }
 
 }

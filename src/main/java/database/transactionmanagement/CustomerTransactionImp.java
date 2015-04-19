@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -34,6 +35,11 @@ public class CustomerTransactionImp extends JdbcDaoSupport{
 
         logger.info("Deleted customer named: "+ ID);
         getJdbcTemplate().update(sql, ID);
+    }
+
+    public Map getDepartmentByID(long ID){
+        String sql = "Select * from departments where department_id=?";
+        return getJdbcTemplate().queryForMap(sql,ID);
     }
 
     public List getAllCustomer(){
