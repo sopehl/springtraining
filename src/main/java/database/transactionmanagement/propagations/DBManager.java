@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLDataException;
+
 @Component("customerManager")
 public class DBManager {
 
@@ -19,7 +21,7 @@ public class DBManager {
 	    update(id);
     }
 
-
+    @Transactional
     public void doIt(long ID) {
         operation(ID);
     }
@@ -35,8 +37,12 @@ public class DBManager {
 	public void update(long ID){
 		databaseImp.updateDepartmentName(ID);
 	}
-	
-	@Transactional
+
+//    Spring RuntimeException yada bunun alt sınıflarından bir istisna ile karşılaşırsa
+//    db üzeirndeki tüm durumları iptal edip rollback yapmaktadır
+//    rollbackFor için verilen exceptionda rollback yap anlamına gelmektedir.
+//    noRollbackFor için verilen classta ise rollback yapma anlamında kullanılmaktadır
+	@Transactional(rollbackFor = SQLDataException.class, noRollbackFor = ArrayIndexOutOfBoundsException.class)
 	public void allProcessOnDB(long ID){
 		update(ID);
 		insert();

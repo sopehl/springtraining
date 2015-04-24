@@ -16,7 +16,7 @@ public class App {
                 new ClassPathXmlApplicationContext("databaseconf/transaction-conf.xml");
         DBManager manager = applicationContext.getBean("customerManager",DBManager.class);
 
-        manager.allProcessOnDB(160);
-//        manager.doIt(160);
+//        manager.allProcessOnDB(160);
+        manager.doIt(160);
     }
 }
