@@ -28,3 +28,8 @@
 -   Spring platform bağımsız transaction managers
 
 ![spring-trans-managers](http://www.injavawetrust.com/wp-content/uploads/spring-transaction-manager.png)
+
+-   Java dünyasında en tanınmış ORM frameworkleri
+    -   Hibernate
+    -   EclipseLink
+    -   OpenJPA
