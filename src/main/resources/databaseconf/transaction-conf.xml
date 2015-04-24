@@ -22,7 +22,7 @@
         Transaciton işleminin declerative olarak annotasyon ile yapılmaısnı sağlamaktadır
         Ayrıca transaction-manager beanı almaktadır
     -->
-    <tx:annotation-driven transaction-manager="transactionManager" mode="aspectj"/>
+    <tx:annotation-driven transaction-manager="transactionManager" mode="aspectj" proxy-target-class="true"/>
 
     <!--
         Springte her database erişimi için kullanılan ayrı objeler vardır. Biz burada JDBC kullandığımızdan

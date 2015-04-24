@@ -2,6 +2,7 @@ package database.transactionmanagement.propagations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,10 +12,17 @@ public class DBManager {
 	@Autowired
 	DatabaseImp databaseImp;
 
-    @Transactional
+//    readOnly araştır.
+    @Transactional(propagation = Propagation.REQUIRES_NEW , readOnly = true)
 	public void operation(long id){
-		System.out.println(databaseImp.getDepartmentByID(id));
-	}
+//		System.out.println(databaseImp.getDepartmentByID(id));
+	    update(id);
+    }
+
+
+    public void doIt(long ID) {
+        operation(ID);
+    }
 
     //@Transactional default değeri propagation = Propagation.REQUIRED dır
 	@Transactional

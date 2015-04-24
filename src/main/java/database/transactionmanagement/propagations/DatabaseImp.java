@@ -7,8 +7,10 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Component("database")
+@Repository
 public class DatabaseImp extends JdbcDaoSupport{
 	
 	@Autowired
