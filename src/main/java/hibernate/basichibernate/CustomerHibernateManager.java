@@ -9,14 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
  */
 //Veri tabanı işlemlerini bizlere service eden classtır
 @Component("customerManager")
+@Transactional
 public class CustomerHibernateManager {
 
     @Autowired
     private CustomerRepositoryImp hibernateCustomerRepositoryImp;
 
-    @Transactional
     public void save(Customer customer) {
         hibernateCustomerRepositoryImp.saveCustomer(customer);
+    }
+
+    public Customer getCustomerByName(String name) {
+        return hibernateCustomerRepositoryImp.getCustomerByName(name);
     }
 
 }

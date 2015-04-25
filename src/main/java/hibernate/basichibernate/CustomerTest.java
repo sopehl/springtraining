@@ -18,7 +18,7 @@ public class CustomerTest {
 
         Customer customer = new Customer("Pehlivan", "Okan", 22);
         hiberCustomer.save(customer);
-
+        System.out.println(hiberCustomer.getCustomerByName("Pehlivan"));
     }
 
 }

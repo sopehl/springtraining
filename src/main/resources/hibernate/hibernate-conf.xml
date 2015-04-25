@@ -24,6 +24,9 @@
         classı sayesinde birtane Session objesi oluşturmuş oluyoruz-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
+        <!--Burada annotatedClasses diyerek JPA annotasyonlarının olduğu classları belirtmekteyi
+            bu classların sayısı fazlalaşabilir bu yüzden bunun yerine packageToScan kullnılabilir
+            buradada sadece paketleri vererek işlemimizi kısaltmış oluruz-->
         <property name="annotatedClasses">
             <list>
                 <value>
@@ -31,6 +34,9 @@
                 </value>
             </list>
         </property>
+        <!--Ağaşıdaki propertylerde ise hibernate nasıl davranır onu belirlemekteyiz
+            hibernate hql kullanmaktadır ve bu hqli sql çevirmekte, bunların görünmesi ve formatlanması işlemini aşağıda tanımlarık
+            hbm2ddl.aouto ile db tabloları nin oluşturulması gerektiğini beirtiyoruz, buralara daha başka parametrelerde gelebilir-->
         <property name="hibernateProperties">
             <value>
                 hibernate.format_sql = true
