@@ -33,7 +33,7 @@ public class DBManager {
 	}
 
     //Mevcut transaction ı durdur ve daha sonra yeni transaction oluştur oradan devam et demek anlamına gelmektedir.
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Transactional(propagation = Propagation.NEVER)
 	public void update(long ID){
 		databaseImp.updateDepartmentName(ID);
 	}
