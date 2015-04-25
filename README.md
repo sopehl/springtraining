@@ -33,3 +33,7 @@
     -   Hibernate
     -   EclipseLink
     -   OpenJPA
+
+-   Proxy pattern
+
+![proxy-pattern](http://www.tutorialspoint.com/design_pattern/images/proxy_pattern_uml_diagram.jpg)

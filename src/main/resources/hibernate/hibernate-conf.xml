@@ -4,14 +4,24 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!--Annotation ile bir conf. yapıldığını göstermektedir-->
     <context:annotation-config></context:annotation-config>
+    <!--Enjecte işleminin bu paket içerisinde yapılması gerektiğini söylemektedir-->
     <context:component-scan base-package="hibernate.basichibernate"/>
 
-    <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+    <!--Spring her data access için kendi transactionManagerını barındırmaktadır. Buradada hibernate ile ilegili olan
+        TransactionManager beanını oluşturduk ve transactionun declerative oalrak annotasyonlar ile sağlanacağını
+        belirttik.
+
+        Transaction managerımız bir tane sessionFactory ye ihtiyac duymaktadır
+        -->
+    <tx:annotation-driven transaction-manager="hibernateTransactionManager" proxy-target-class="true" mode="proxy"/>
     <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!--Veritabanı configuration işlemlerinin yapılabilmesi Session üzerinden yapılmaktadır. Aşağıdaki LocalSessionFactoryBean
+        classı sayesinde birtane Session objesi oluşturmuş oluyoruz-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
         <property name="annotatedClasses">
@@ -31,6 +41,7 @@
         </property>
     </bean>
 
+    <!--Herzamanki gibi birtane datasource var veritabanı işlemleri için kullanırız ve Session beanına parametre olarak geçeriz-->
     <bean id="datasource" class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost/cust"/>
