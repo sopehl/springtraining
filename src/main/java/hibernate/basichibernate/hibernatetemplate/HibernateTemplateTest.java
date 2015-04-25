@@ -15,8 +15,10 @@ public class HibernateTemplateTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("hibernate/hibernate-conf.xml");
 
         CustomerRepositoryService service = context.getBean("customerService", CustomerRepositoryService.class);
-        Customer customer = new Customer("Pehlivan", "Selma", 48);
-        service.saveCustomer(customer);
+        Customer customer = new Customer("Pehlivan", "Okan", 12);
+//        service.saveCustomer(customer);
+//        service.findCustomer(1);
+        service.findCustomerByName("Pehlivan");
     }
 
 }

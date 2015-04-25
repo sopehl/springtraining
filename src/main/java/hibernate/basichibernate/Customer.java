@@ -67,9 +67,9 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "{ id :" + getId() + "\n" +
+        return "Customer {id :" + getId() + "\n" +
                 "name :" + getName() + "\n" +
                 "firstName :" + getFirstName() + "\n" +
-                "age :" + getName() + "}";
+                "age :" + getName() + "}"+"\n";
     }
 }

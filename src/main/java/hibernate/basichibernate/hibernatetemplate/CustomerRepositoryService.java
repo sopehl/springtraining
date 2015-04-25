@@ -19,4 +19,12 @@ public class CustomerRepositoryService {
         customerRepositoryImp.save(customer);
     }
 
+    public void findCustomer(long id) {
+        System.out.println(customerRepositoryImp.find(id));
+    }
+
+    public void findCustomerByName(String name) {
+        System.out.println(customerRepositoryImp.findByName(name));
+    }
+
 }
