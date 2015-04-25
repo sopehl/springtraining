@@ -7,7 +7,7 @@
     <!--Annotation ile bir conf. yapıldığını göstermektedir-->
     <context:annotation-config></context:annotation-config>
     <!--Enjecte işleminin bu paket içerisinde yapılması gerektiğini söylemektedir-->
-    <context:component-scan base-package="hibernate.basichibernate"/>
+    <context:component-scan base-package="hibernate.basichibernate,hibernate.basichibernate.hibernatetemplate"/>
 
     <!--Spring her data access için kendi transactionManagerını barındırmaktadır. Buradada hibernate ile ilegili olan
         TransactionManager beanını oluşturduk ve transactionun declerative oalrak annotasyonlar ile sağlanacağını
@@ -15,8 +15,12 @@
 
         Transaction managerımız bir tane sessionFactory ye ihtiyac duymaktadır
         -->
-    <tx:annotation-driven transaction-manager="hibernateTransactionManager" proxy-target-class="true" mode="proxy"/>
+    <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
     <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
