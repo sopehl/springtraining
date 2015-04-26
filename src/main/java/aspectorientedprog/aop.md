@@ -28,3 +28,8 @@ gibi işlemlere AOP dilinde **aspect** denilmektedir
 
 -   java dünyasında önemli bir AOP frameworku AspectJ'dir. AspectJ, aspectlerin **bytecode** seviyesinde iş mantığını taşıyan
 kodlar ile birleşmesi(harmanlanmasını) sağlamaktadır.
+
+-   AOP kavramlarından bir taneside advicelardır. **Advicelar** koşturmak istediğimiz loglama, transaction veya caching gibi
+jenerik fonksiyonlar olarak tanımlarız.
+
+-   **Aspect** hangi jenerik fonksiyonun nerede ve ne zaman kosturulacağını tanımlar.
