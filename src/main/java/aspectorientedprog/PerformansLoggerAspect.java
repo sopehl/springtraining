@@ -21,6 +21,12 @@ public class PerformansLoggerAspect {
 //    Bu annotation bizim jeneriklerimizi harmanlayacağımız, işletme mantığının olduğu metodu belirtmektedir
 //    Aspect bu annotasyon sayesinde nereye hangi metoda bu harmanlamayı yapacağını bilmektedir
     @Around("execution(* aspectorientedprog.TargetClassForAspect.doSomething(..))")
+//    execution(* aspectorientedprog.TargetClassForAspect.doSomething(..)) bu ifadeye pointcut denilmektedir
+//    profile() metodu ise pointcut ile adviceların nerede ve nezaman koşulacağını belirledi
+//    @Around içerisinde pointcutlar AspectJ pointcut expression language ile oluşturulur
+//    Bu expression language referansına http://eclipse.org/aspectj/ dan ulaşabiliriz
+//    Burada execution dışındanda join pointler bulunmaktadır ama Spring AOP sadece metod koşturma join pointleri desteklemekte
+//    Bu yüzden spring ile en çok kullnılan metod koştura join point execution
     public Object profile(ProceedingJoinPoint joinPoint) throws Throwable {
 //        Basit bir metodun çalışma zamanını anlamaya çalıştığımız kod
         long start = System.currentTimeMillis();
