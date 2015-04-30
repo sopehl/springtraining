@@ -27,7 +27,7 @@ public class StudentLoggingAspect {
     }
 
     @Pointcut("execution(* aspectorientedprog.aopexample.Student.getParameter(..))")
-    private void setAgeAdvice() {
+    private void getParameterPointcut() {
 
     }
 
@@ -49,11 +49,19 @@ public class StudentLoggingAspect {
         logger.info("This method run "+ methodRunningTime+" times");
     }
 
-    @AfterReturning(value = "setAgeAdvice()" ,returning = "str")
-    public void beforeSettings(JoinPoint joinPoint , String str) {
+//    Advice target metodların parametreleri nasıl kullnıldığını göstermektedir
+    @AfterReturning(value = "getParameterPointcut()" ,returning = "str")
+    public void parametersAdvice(JoinPoint joinPoint , String str) {
         Object[] obj = joinPoint.getArgs();
         logger.info(obj[0].toString());
         logger.info(str);
+    }
+
+//    Aşağıdaki expression getParameterPointcut pointcut ve arguman olarak String alan metodu kullan demektedir
+//    Advice ile birlikte çalışan metodun bizzat parametresini burada advice içinde bu şekildede kullanabiliriz
+    @Before("getParameterPointcut() && args(string)")
+    public void beforeParameters(String string) {
+        logger.info("Before advice parameter name: "+ string);
     }
 
 
