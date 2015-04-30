@@ -15,6 +15,7 @@ public class AspectStudentTest {
         Student student = context.getBean("student", Student.class);
         student.printSomething();
         System.out.println();
+        student.doSometing();
     }
 
 }

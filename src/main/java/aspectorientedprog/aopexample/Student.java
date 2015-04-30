@@ -32,4 +32,15 @@ public class Student {
         System.out.println("student printed something");
 //        get logging with aop
     }
+
+    public void doSometing() {
+//        get logging with aop
+        System.out.println("student do something");
+//        get logging with aop
+    }
+
+    @Override
+    public String toString() {
+        return "Target toString";
+    }
 }

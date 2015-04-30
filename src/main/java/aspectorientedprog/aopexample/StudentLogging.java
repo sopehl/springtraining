@@ -23,17 +23,25 @@ public class StudentLogging {
 
     }
 
-    @Around("getLogging()")
+//    Pointcut için olan expression lang. çeşit çeşit olabilir. Burada do ile başlayan metodlara harmanlama yapılması var
+    @Pointcut("execution(* aspectorientedprog.aopexample.Student.do*(..))")
+    private void doPointCut() {
+
+    }
+
+//    Birden fazla Pointcut referansı seçebiliriz
+    @Around("getLogging() || doPointCut()")
     public Object aroundPrintSomething(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.info("before printing somethings");
+        logger.info(joinPoint.getSignature().toString());
         Object o = joinPoint.proceed();
-        logger.info("after printing somethings");
+        logger.info(joinPoint.getTarget().toString());
         return o;
     }
 
-    /*@Before("getLogging()")
-    public void beforePrintSomethinf() {
-        System.out.println("Something");
+//    O pointcut ve/veya pointcutların çalışmasından önce çalışmasını söylemektedir
+    @Before("getLogging()")
+    private void beforePrintSomething() {
+        System.out.println("Before printSomething()");
     }
-*/
+
 }
