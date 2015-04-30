@@ -1,10 +1,7 @@
 package aspectorientedprog.aopexample;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
@@ -16,6 +13,7 @@ import java.util.logging.Logger;
 @Component
 public class StudentLoggingAspect {
 
+    private static int methodRunningTime;
     private static final Logger logger = Logger.getLogger(StudentLoggingAspect.class.getName());
 
     @Pointcut("execution(* aspectorientedprog.aopexample.Student.getStudentInfo())")
@@ -37,6 +35,13 @@ public class StudentLoggingAspect {
     @AfterThrowing(pointcut = "exceptionPointcut()" , throwing = "ex")
     public void afterTrowing(JoinPoint joinPoint , ArithmeticException ex) {
         logger.info(joinPoint + ex.toString());
+    }
+
+//    Bir method ne döndürürse döndürsün ondan sonra çalışacak olan advice ı belirlemektedir
+    @After("studentInfo()")
+    public void afterAdvice() {
+        methodRunningTime++;
+        logger.info("This method run "+ methodRunningTime+" times");
     }
 
 
