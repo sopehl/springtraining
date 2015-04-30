@@ -12,10 +12,14 @@ public class AspectStudentTest {
     @Test
     public void aspect_student_test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("aspect/aspect-conf.xml");
+
         Student student = context.getBean("student", Student.class);
+        student.setName("Semih Okan");
+
         student.printSomething();
-        System.out.println();
         student.doSometing();
+
+        student.getName();
     }
 
 }

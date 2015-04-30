@@ -16,8 +16,12 @@ import java.util.logging.Logger;
 @Component
 public class StudentLogging {
 
-    private final static Logger logger = Logger.getLogger(StudentLogging.class.getName());
+//    Not: Burada yapılan annotasyonlu işlemlerin yanı sıra bunlar. XML ilede yapılmakta.
+//    http://www.mkyong.com/spring3/spring-aop-aspectj-in-xml-configuration-example/
+//    Yukarıdaki linkten xml ile spring aop configuration nasıl yapılır bulabilirim
 
+    private final static Logger logger = Logger.getLogger(StudentLogging.class.getName());
+//    Pointcutlarda seperation of concern işleminin hangi metodlara uygulanacağını seçeriz. Yaptığımız iş sadece metodu seçmek
     @Pointcut(value = "execution(* aspectorientedprog.aopexample.Student.printSomething())")
     private void getLogging() {
 

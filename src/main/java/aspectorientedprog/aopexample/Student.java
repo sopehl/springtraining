@@ -27,6 +27,7 @@ public class Student {
         this.age = age;
     }
 
+//    Aşağıdaki method bir advice metoda navigate edilmiş durumda. IDEler bu advice metodu kolayca bulmamızı sağlamaktadır
     public void printSomething() {
 //        get logging with aop
         System.out.println("student printed something");
