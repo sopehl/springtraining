@@ -20,6 +20,7 @@ public class Student {
     }
 
     public int getAge() {
+        int i = 1/0;
         return age;
     }
 
@@ -38,6 +39,16 @@ public class Student {
 //        get logging with aop
         System.out.println("student do something");
 //        get logging with aop
+    }
+
+    public void doAnyOtherSomething() {
+        System.out.println("student do any other something");
+    }
+
+    public String getStudentInfo() {
+        return "[\n Student \n" +
+                "name: " + getName() + "\n" +
+                "\n]";
     }
 
     @Override
