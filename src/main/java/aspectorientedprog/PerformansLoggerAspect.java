@@ -30,7 +30,7 @@ public class PerformansLoggerAspect {
     public Object profile(ProceedingJoinPoint joinPoint) throws Throwable {
 //        Basit bir metodun çalışma zamanını anlamaya çalıştığımız kod
         long start = System.currentTimeMillis();
-        System.out.println("Metod öncesi" + joinPoint.getSignature());
+        System.out.println("Metod öncesi" + joinPoint.getSignature().getDeclaringType().toString());
         System.out.println(joinPoint.getKind());
         System.out.println(joinPoint.getSourceLocation().getWithinType().toString());
         System.out.println(joinPoint.getTarget().toString());
