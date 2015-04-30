@@ -51,6 +51,11 @@ public class Student {
                 "\n]";
     }
 
+    public String getParameter(String string) {
+        System.out.println("getting parameter");
+        return "returned parameter: "+string;
+    }
+
     @Override
     public String toString() {
         return "Target toString";

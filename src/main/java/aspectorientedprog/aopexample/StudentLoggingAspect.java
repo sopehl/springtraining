@@ -26,6 +26,11 @@ public class StudentLoggingAspect {
 
     }
 
+    @Pointcut("execution(* aspectorientedprog.aopexample.Student.getParameter(..))")
+    private void setAgeAdvice() {
+
+    }
+
 //    Burada String student parametresi harmanlanacak metodun return türünden olmalıdır.
     @AfterReturning(pointcut = "studentInfo()" , returning = "student")
     public void after(JoinPoint joinPoint , String student) {
@@ -42,6 +47,13 @@ public class StudentLoggingAspect {
     public void afterAdvice() {
         methodRunningTime++;
         logger.info("This method run "+ methodRunningTime+" times");
+    }
+
+    @AfterReturning(value = "setAgeAdvice()" ,returning = "str")
+    public void beforeSettings(JoinPoint joinPoint , String str) {
+        Object[] obj = joinPoint.getArgs();
+        logger.info(obj[0].toString());
+        logger.info(str);
     }
 
 
