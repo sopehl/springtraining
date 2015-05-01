@@ -35,3 +35,6 @@ jenerik fonksiyonlar olarak tanımlarız.
 -   **Aspect** hangi jenerik fonksiyonun nerede ve ne zaman kosturulacağını tanımlar.
 
 -   **Joinpoint** , iş mantığının koşturulduğu metodlardır
+
+-   Bir edvice a parametre olarak istediğimiz parametreyi geçebiliriz. Metod hakkında bilgi almak için
+**JoinPoint** kullanabiliriz.

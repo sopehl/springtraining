@@ -1,6 +1,7 @@
 package aspectorientedprog.aopexample;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -36,6 +37,11 @@ public class StudentOrderAspect {
     @Before("getOrderedPointcut2()")
     private void orderAdvice2() {
         System.out.println("Order 3");
+    }
+
+    @Before("getOrderedPointcut()")
+    private  void orderAdvice3(JoinPoint joinPoint) {
+        logger.info(joinPoint.getSignature().getName());
     }
 
 }
