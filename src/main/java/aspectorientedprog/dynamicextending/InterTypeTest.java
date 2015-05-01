@@ -12,9 +12,9 @@ public class InterTypeTest {
     @Test
     public void inter_type_test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("aspect/inter-type.xml");
-//        triangle beanını cast ederek (Interface)
-        Triangle triangle = context.getBean("triangle" , Triangle.class);
-        triangle.calculateArea();
+//        triangle beanını cast ettik ve triangle classını dinamik olarak genişletmiş olduk.
+        ShapeCalculation triangle = context.getBean("triangle" , ShapeCalculation.class);
+        triangle.calculatePerimater();
     }
 
 }
