@@ -38,3 +38,13 @@ jenerik fonksiyonlar olarak tanımlarız.
 
 -   Bir edvice a parametre olarak istediğimiz parametreyi geçebiliriz. Metod hakkında bilgi almak için
 **JoinPoint** kullanabiliriz.
+
+#####AOP Sınıfların Dinamik Olarak genişletilmesi
+
+-   Bir sınıfa yeni bir metod eklendiği zaman mevcut kodda bir değişim gerçekleşmektedir ve kodun tekrardan derlenmesi gerekmektedir.
+
+-   Ruby veya Groovy gibi dillerde bir sınıfın yapısı değiştirilmeden, sınıfa dinamik olarak metod ekleme işlemi gerçeklenir.
+
+-   Java AOP kullanarak yukarıda tanımlanan işlem yapılabilir.
+
+-   Dinamik olarak metod ekleme işlemine AspectJ terminolojisinde **inter-type** denilmektedir. Yeni eklenen bu metoda ise **introduction** denilmektedir
