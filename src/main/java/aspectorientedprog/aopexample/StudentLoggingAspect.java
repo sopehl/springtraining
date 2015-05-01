@@ -2,6 +2,7 @@ package aspectorientedprog.aopexample;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
  */
 @Aspect
 @Component
+@Order(1)//Buradaki order annotasyonu sayesinde sirasini ilk aspect olarak belirledik
 public class StudentLoggingAspect {
 
     private static int methodRunningTime;
@@ -28,6 +30,11 @@ public class StudentLoggingAspect {
 
     @Pointcut("execution(* aspectorientedprog.aopexample.Student.getParameter(..))")
     private void getParameterPointcut() {
+
+    }
+
+    @Pointcut("execution(* aspectorientedprog.aopexample.Student.joinPointForOrder(..))")
+    private void getOrderedMethodPointcut() {
 
     }
 
@@ -64,5 +71,9 @@ public class StudentLoggingAspect {
         logger.info("Before advice parameter name: "+ string);
     }
 
+    @Before("getOrderedMethodPointcut()")
+    public void before() {
+        System.out.println("Order 1");
+    }
 
 }

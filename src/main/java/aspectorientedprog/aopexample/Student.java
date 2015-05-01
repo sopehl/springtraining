@@ -60,4 +60,9 @@ public class Student {
     public String toString() {
         return "Target toString";
     }
+
+    public void joinPointForOrder() {
+        System.out.println("AOP de join pointler birden fazla aspecte sahip olabilir onların sırasını " +
+                "@Order annotasyonu ile sırasını belirleriz.");
+    }
 }
