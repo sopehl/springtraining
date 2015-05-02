@@ -37,3 +37,13 @@
 -   Proxy pattern
 
 ![proxy-pattern](http://www.tutorialspoint.com/design_pattern/images/proxy_pattern_uml_diagram.jpg)
+
+-   Spring MVC - Üçlü mimarinin gösterimi
+
+![uclu-mimari](https://mscblogs.blob.core.windows.net/media/fredriknormen/WindowsLiveWriter/UsingWebServicesina3tierarchitecture_134F6/3tier_2.jpg)
+
+-   Spring mevcut web frameworklerine entegre olabildiği gibi, sadece spring bazlı web uygulamaları geliştirme desteğide sunmaktadır
+-   Springin web programcılığını mümkün kıldığı bazı alanlar
+    -   Spring MVC
+    -   Spring Webflow
+    -   Spring BlazeDS

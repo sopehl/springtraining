@@ -111,6 +111,13 @@
             <version>4.1.6.RELEASE</version>
         </dependency>
 
+        <!--Spring Web MVC-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+
 
     </dependencies>
 
