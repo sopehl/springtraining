@@ -2,6 +2,7 @@ package springMVC.basicexample;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +42,17 @@ public class IndexController {
 //        RequestParam esine istiyaç duymadan çalışmasını istiyorsak eğer. Annotasyonumuzu şu şekilde kullanmalıyız
 //        @RequestParam("pageKey" , require = false) şeklinde olmalıdır
         return pageName;
+    }
+
+//    Burada request teki userid ile @PathVariable içindeki userid birbirleri ile bind edilmiştir
+//    @PathVariable annotasyonu sayesinde bir request pathindeki değerlerin bir controller metoduna parametre
+//    geçmek mümkündür. Örneğin: http://localhost/tast/870 burada userid değeri 870 dir ve bu değer
+//    metodun parametresi olan userid'ye geçilmiştir. Artık pathteki değer metodun içinde kullanılabilir
+    @RequestMapping(value = "/task/{userid}", method = RequestMethod.GET)
+    public String getUserTaskList(final ModelMap modelMap, @PathVariable(value = "userid")String userid) {
+        //Buradaki idye sahip kullanıcının tasklarını bir listeye atabilirim.
+        //Istenilen şekilde kullanabilirim
+        return "ilgiliViewSayfasi";
     }
 
 }
