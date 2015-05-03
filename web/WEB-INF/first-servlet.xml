@@ -7,10 +7,23 @@
     <!--Static ve dinamik kaynakların birbirinden ayrılamasını saşağıdaki gibi sağlarız-->
     <!--Static kaynakların DispatcherServlet e gitmesine gerek yoktur-->
     <!--Dispatcher kullanıcıdan gelen requestlerin gerekli controllerlara iletilmesini sağlamaktadır-->
-    <mvc:resources mapping="/static/**" location="resource"/>
+    <mvc:resources mapping="/static/**" location="/resource/static/"/>
 
+    <!--Annotasyon bazlı bir configuration yaptığımız için aşağıdaki annotasyonu eklememiz gerekmektedir-->
     <mvc:annotation-driven/>
 
     <context:component-scan base-package="springMVC.basicexample"/>
+
+    <!--Ilgili controllerdan bir değer return edilmektedir,
+        bu değer bizim hangi dosya ismini kullanmamız gerektiğini içermektedir(return edilen değer)-->
+    <!--Controllerdan gelen bu değerler DispatcherServlet e ulaşır ve artık Modelin kullanılacağı viewa karar verilmesi gerekmektedir
+        DispatcherServlet bu viewların nerde olduğunu ve hangi uzantılı dosya olduğunu bir InternalResourceViewResolver beanı sayesinde
+        bilmektedir-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--Hangi dosyada olduğu-->
+        <property name="prefix" value="resource/view"/>
+        <!--Dosyanın uzantısının ne olduğu-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>

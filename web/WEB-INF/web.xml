@@ -32,5 +32,12 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-
+    <!--Bir spring uygulaması birden fazla configuration dosyasına yayılabilir. birden fazla spring-configuration xml
+        dosyaları yüklemek için aşağıdaki aşağıdaki Listener kullanilir-->
+    <!--Yada istenilen  configuration dosyaları için param-value değereleri arttırılabilir -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
 </web-app>

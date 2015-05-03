@@ -47,3 +47,7 @@
     -   Spring MVC
     -   Spring Webflow
     -   Spring BlazeDS
+
+-   Spring Web MVC'nin alternatifi olarak **Struct ve Webworks** gibi frameworkler gösterilebilir
+
+-   DispactcherServlet bir servlettir ve Spring Web MVCnin merkezinde yer almaktadır
