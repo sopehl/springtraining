@@ -22,7 +22,8 @@ public class HelloController {
     //    Bu metodumuzun bir ModelMap parametresi bulunmaktadır. Bu parametre şunu sağlamaktadır. Controller le View arasında
 //    Veri taşınmasını sağlamaktadır.
 //    Burada addAttribute(key,value) ilişkisi kullanılmaktadır. Buradaki key viewda kullanılarak valuelara erişim sağlanır.
-    @RequestMapping(value = "/", method = {RequestMethod.GET , RequestMethod.HEAD})
+//    Burada consumes clienttan gelen verir hangi şekilde harcanması gerektiğini söylemekte
+    @RequestMapping(value = "/", method = {RequestMethod.GET , RequestMethod.HEAD} , consumes = "application/*")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("message", "Welcome to Hello page");
 //        Buradaki index ise view elementlerinden birinin adıdır. bizim demekki bir tane index adında bir view sağlayıcımız var
