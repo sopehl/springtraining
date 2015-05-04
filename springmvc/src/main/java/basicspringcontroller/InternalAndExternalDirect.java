@@ -15,13 +15,26 @@ import org.springframework.web.servlet.view.RedirectView;
 public class InternalAndExternalDirect {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String doSomething(final ModelMap modelMap) {
+    public RedirectView doSomething(final ModelMap modelMap) {
         //burada ise önemli keyword redirect bu sayede do/done şeklinde bir request atabiliriz
         //RedirectView kullanılarakta bu işlem yapılmaktadır,Bu sınıf sayesinde redirect yaparken parametreleride
         //redirect edilen yerde kullanabiliriz
 
+        /*@RequestMapping(method = RequestMethod.GET)
+        public RedirectView redirect(final ModelMap model)
+        throws IOException {
+            RedirectView redirectView =
+                    new RedirectView("rental/list");
+            redirectView.addStaticAttribute("errorMessage",
+                    "error1");
+            return redirectView;
+        }*/
 
-        return "redirect:do/done";
+        RedirectView redirectView =
+                new RedirectView("do/done");
+        redirectView.addStaticAttribute("name" , "Okan");
+        return redirectView;
+        //return "redirect:do/done";
     }
 
     //for http://localhost:8080/do/done
