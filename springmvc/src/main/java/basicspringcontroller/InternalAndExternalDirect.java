@@ -41,6 +41,7 @@ public class InternalAndExternalDirect {
     @RequestMapping(value = "/done" , method = RequestMethod.GET)
     public String done(ModelMap modelMap , @RequestParam("name") String name) {
         modelMap.addAttribute("done", "Doneeeee !!");
+        //RedirectView ile gelen parametrenin tutulması ve attributelere eklendi
         modelMap.addAttribute("name", name);
         //return ile bir yönlendirme işlemi yaptık bu bir done.jsp sayfasına işaret etmektedir.
         //burada yapılan işleme internal direct denilmektedir
