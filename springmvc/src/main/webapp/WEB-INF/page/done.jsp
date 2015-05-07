@@ -13,5 +13,12 @@
 <body>
 <p>${done}</p>
 <p>user name: ${name}</p>
+
+<form action="/do/done" method="post">
+    Name:<input type="text" name="name">
+    <input type="submit" value="Save">
+</form>
+
+<p>Saved personel : ${formName}</p>
 </body>
 </html>

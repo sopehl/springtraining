@@ -39,11 +39,17 @@ public class InternalAndExternalDirect {
 
     //for http://localhost:8080/do/done
     @RequestMapping(value = "/done" , method = RequestMethod.GET)
-    public String done(ModelMap modelMap , @RequestParam String name) {
+    public String done(ModelMap modelMap , @RequestParam("name") String name) {
         modelMap.addAttribute("done", "Doneeeee !!");
         modelMap.addAttribute("name", name);
         //return ile bir yönlendirme işlemi yaptık bu bir done.jsp sayfasına işaret etmektedir.
         //burada yapılan işleme internal direct denilmektedir
+        return "done";
+    }
+
+    @RequestMapping(value = "/done", method = RequestMethod.POST)
+    public String form(ModelMap modelMap, @RequestParam("name") String name) {
+        modelMap.addAttribute("formName", name);
         return "done";
     }
 
