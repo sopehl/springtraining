@@ -1,11 +1,9 @@
 package exceptionhandling;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
@@ -26,6 +24,9 @@ public class ExceptionHandlingController {
 
 //    burası şunu demektedir bu controllerda bir IOException olursa aşağıdaki metodu çağır denemktir
     @ExceptionHandler(IOException.class)
+//    Responsestatus serverın requestlere yaptığı responselar hakkında bilgi sağlamaktadır
+//    Örn: Responsestatus eğer ki 200 ise gönderilen request sorunsuz cevaplandı anlamına gelmektedir - Status değeri 302
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public RedirectView handleIOException(IOException e) {
 //        Burada redirect işlemi yapmaktayız ve url i aşağıdaki gibidir
         RedirectView redirectView = new RedirectView("/ex/ioex");
