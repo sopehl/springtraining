@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:security="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd"
+             xmlns:beans="http://www.springframework.org/schema/beans">
+
+    <!--<security:http >
+
+        <security:intercept-url pattern="/secure/**" access="isAnonymous()"/>
+        &lt;!&ndash;authentication işlemi sonrasında kullanıcıyı localhost:8080/secure/home a gonder demektir&ndash;&gt;
+        <security:form-login login-page="/login"
+                             default-target-url="/secure/home"
+                             authentication-failure-url="/login_error"
+                             login-processing-url="/j_spring_security_check"
+                             always-use-default-target="true"
+                             />
+    </security:http>-->
+
+    <!--Aşağıda kullanici rolüne sahip olarak nerelere erişebiliriz bunu belirliyoruz.
+    -->
+    <security:http auto-config="true">
+        <!--Kullanıcının /secure altındaki herhangi bir sayfaya erişebilmesi için USER rolüne aship olması gerekmektedir-->
+        <security:intercept-url pattern="/secure/**" access="hasRole('ROLE_USER')"/>
+        <!--Yukarıda auto-config yaparak kullanıcıyı default bir login sayfasına yönlendiriyoruz-->
+        <!--Aşağıda authentication gerektiren bir request bulunmaktadır. yani localhost:8080/secure/index
+        şeklinde bir request atarsak, git ilk önce authentication işlemini ve sonrada rollerini al gel karar verelim deemektedir-->
+        <security:form-login default-target-url="/secure/home"/>
+    </security:http>
+
+    <!--Artık authentication işlemi başlayabilir-->
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <!--Burada kullanıcı için gerekli rol veriliyor eğerki kullanıcı adı ve şifresini doğru girerse kendisine
+                authorities kısmındaki roller verilmektedir. authorities bize kullanıcının hangi rollere sahip olduğunu söyler-->
+                <security:user name="okan" password="12" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans:beans>

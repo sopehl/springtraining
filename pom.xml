@@ -2,17 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>spring.training</groupId>
     <artifactId>spring-framework-training</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <properties>
-        <spring.version>4.1.5.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
     <modules>
         <module>springmvc</module>
+        <module>spring-security</module>
     </modules>
 
     <dependencies>
@@ -74,7 +78,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!--AspectJ framework-->
@@ -106,20 +110,26 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!--Spring Web MVC-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
